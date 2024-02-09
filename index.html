@@ -1,0 +1,58 @@
+<!-- FILEPATH: /Users/jasbook/Repos/htmx-play/tic-tac/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+    <style>
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+   
+        let i = 0;
+        function handleClick(element){
+            
+            if (element.innerText === "") {
+            if (i % 2 === 0) {
+                element.innerText = "X";
+                i++
+            } else {
+                element.innerText = "O";
+                i++
+            }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="board">
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+        <div class="cell" hx-post="/move" hx-trigger="click" hx-swap="outerHTML" hx-target="#board" onclick="handleClick(this)"></div>
+    </div>
+</body>
+</html>
